@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+var cors = require('cors')
+app.use(cors({credentials: true, origin: true}))
+
 var port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -25,8 +28,6 @@ app.get('/', (req, res) => {
 });
 
 
-
-app.get('/cart')
 
 app.listen(port);
 console.log('Running on port ...' + port);
