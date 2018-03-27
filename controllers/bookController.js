@@ -84,7 +84,7 @@ exports.books_in_cart= function(req, res)
 exports.delete_from_cart= function(req, res)
 {
 
-  Book.remove({_id:req.params._id}, function(err, book) {
+  Book.findOneAndUpdate({_id:req.params._id},{in_cart:false}, function(err, book) {
     if (err)
       res.send(err);
     

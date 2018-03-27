@@ -17,7 +17,7 @@ exports.list_all_genres = function(req, res) {
 
 exports.create_a_genre = function(req, res) {
   var genre = new Genre(req.body);
-  console.log(genre);
+  console.log(req.body);
   genre.save(function(err, task) {
     if (err)
       res.send(err);

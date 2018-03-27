@@ -17,8 +17,10 @@ module.exports = function(app) {
     .get(bookControlller.books_in_cart)
 
   app.route('/cart/:_id')
-  .post(bookControlller.add_to_cart)
-    .delete(bookControlller.delete_from_cart);
+  .put(bookControlller.add_to_cart)
+  
+  app.route('/cart_d/:_id')
+    .put(bookControlller.delete_from_cart);
 
     app.route('/buy')
     .get(bookControlller.get_cart_price)
