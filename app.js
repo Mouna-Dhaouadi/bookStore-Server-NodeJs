@@ -15,6 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 Genre =require('./models/genre');
 Book =require('./models/book');
 
+//Auth Router
+const auth=require('./routes/auth');
+const authRoutes=auth.authRoutes;
+app.use('/auth',authRoutes);
+
+
 // Connect to Mongoose
 mongoose.connect('mongodb://localhost:27017/bookstore');
 //var db = mongoose.connection;
@@ -28,6 +34,7 @@ routes(app);
 app.get('/', (req, res) => {
 	res.send('Please use /books or /genres');
 });
+
 
 
 
